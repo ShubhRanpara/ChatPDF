@@ -131,8 +131,8 @@ def main():
 
         if user_question:
             docs = knowledge_base.similarity_search(user_question)
-            llm = HuggingFaceHub(repo_id="google/gemma-2b-it", model_kwargs={"temperature":0.1, "max_length":64}) # best for question answering.
-            # llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5, "max_length":64}) # best for now
+            # llm = HuggingFaceHub(repo_id="google/gemma-2b-it", model_kwargs={"temperature":0.1, "max_length":64}) # best for question answering.
+            llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5, "max_length":64}) # best for now
             # llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":6, "max_length":1024}) # changed temperature and max_length
 
             chain = load_qa_chain(llm, chain_type="stuff")
